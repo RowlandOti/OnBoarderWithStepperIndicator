@@ -1,0 +1,40 @@
+<resources>
+
+    <style name="AppTheme.Dark" parent="AppBaseThemeNoActionBar.Dark" />
+
+    <style name="AppTheme.SplashTheme" parent="AppBaseThemeNoActionBar.Dark" />
+
+    <style name="AppTheme.OnBoarderTheme" parent="AppBaseThemeNoActionBar.Dark" />
+
+    <style name="AppTheme.DashBoard" parent="AppBaseThemeNoActionBar.Dark" />
+
+    <!-- Base application theme. -->
+    <style name="AppBaseThemeNoActionBar.Dark" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/app_color_primary</item>
+        <item name="colorPrimaryDark">@color/app_color_primary_dark</item>
+        <item name="colorAccent">@color/app_color_accent_teal</item>
+        <item name="android:windowBackground">@color/app_color_white</item>
+    </style>
+
+    <style name="AppTheme.Dark.ProgressBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:visibility">visible</item>
+    </style>
+
+    <style name="AppTheme.Dark.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="AppTheme.Dark.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.Dark.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

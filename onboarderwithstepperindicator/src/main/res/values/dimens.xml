@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="stpi_default_circle_radius">10dp</dimen>
+    <dimen name="stpi_default_circle_stroke_width">4dp</dimen>
+    <dimen name="stpi_default_indicator_radius">4dp</dimen>
+    <dimen name="stpi_default_line_stroke_width">2dp</dimen>
+    <dimen name="stpi_default_line_margin">5dp</dimen>
+
+    <!--Indicator stuff-->
+    <dimen name="indicator_size">8dp</dimen>
+    <dimen name="footer_layout_margin">16dp</dimen>
+    <dimen name="textual_layout_margin">16dp</dimen>
+    <dimen name="footer_layout_half_margin">8dp</dimen>
+    <dimen name="section_image_item">250dp</dimen>
+    <dimen name="onboarder_footer_height">50dp</dimen>
+    <dimen name="indicator_layout_margin">20dp</dimen>
+    <dimen name="footer_margin">16dp</dimen>
+    <dimen name="footer_layout_marginEnd">8dp</dimen>
+</resources>

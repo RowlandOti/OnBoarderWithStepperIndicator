@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom"
+        android:background="@android:color/transparent"
+        android:paddingEnd="@dimen/indicator_layout_margin"
+        android:paddingLeft="@dimen/indicator_layout_margin"
+        android:paddingRight="@dimen/indicator_layout_margin"
+        android:paddingStart="@dimen/indicator_layout_margin">
+
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/stepper_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <com.badoualy.stepperindicator.StepperIndicator
+                android:id="@+id/stepper_indicator_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:stpi_circleColor="@color/app_color_grey"
+                app:stpi_indicatorColor="@color/app_color_accent_teal"
+                app:stpi_lineColor="@color/app_color_grey"
+                app:stpi_lineDoneColor="@color/app_color_accent_teal"
+                app:stpi_stepCount="4" />
+
+        </android.support.v4.widget.DrawerLayout>
+
+    </FrameLayout>
+
+</merge>

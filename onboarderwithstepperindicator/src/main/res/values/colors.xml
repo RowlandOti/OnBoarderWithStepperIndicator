@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="stpi_default_circle_color">#b3bdc2</color>
+    <color name="stpi_default_indicator_color">#00b47c</color>
+    <color name="stpi_default_line_color">#b3bdc2</color>
+    <color name="stpi_default_line_done_color">#00b47c</color>
+
+    <!--ToDo: Re-organise colors-->
+    <color name="app_color_primary">#607D8B</color>
+    <color name="app_color_primary_dark">#455A64</color>
+    <color name="app_color_accent_teal">#009688</color>
+    <!-- Text colors-->
+    <color name="app_color_primary_text_black">#212121</color>
+    <color name="app_color_secondary_text_grey">#727272</color>
+    <color name="app_color_white">#FFFFFF</color>
+    <color name="app_color_transparent">#00000000</color>
+    <!-- Secondary Accent colors-->
+    <color name="app_color_accent_orange">#FF9800</color>
+    <color name="app_color_accent_red">#EF5350</color>
+    <!--Indicator colors-->
+    <color name="app_color_active_indicator">#FFFFFF</color>
+    <color name="app_color_inactive_indicator">#727272</color>
+    <color name="app_color_black_transparent">#14000000</color>
+    <!-- Divider colors-->
+    <color name="app_color_divider_grey">#B6B6B6</color>
+    <color name="app_color_window_grey">#FFE5E5E5</color>
+    <color name="app_color_grey">#d3d6db</color>
+    <color name="app_color_grey_border">#999999</color>
+</resources>
