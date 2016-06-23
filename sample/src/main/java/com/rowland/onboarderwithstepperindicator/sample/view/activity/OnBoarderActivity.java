@@ -45,10 +45,6 @@ public class OnBoarderActivity extends AOnBoarderWithStepperIndicatorActivity {
         loadActivity();
     }
 
-    public static Intent getCallingIntent(Context context) {
-        return new Intent(context, OnBoarderActivity.class);
-    }
-
     @Override
     public void onFinishButtonPressed() {
         loadActivity();
