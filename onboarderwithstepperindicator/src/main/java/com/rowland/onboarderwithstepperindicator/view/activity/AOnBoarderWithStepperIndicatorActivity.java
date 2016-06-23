@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import com.rowland.onboarderwithstepperindicator.R;
 import com.rowland.onboarderwithstepperindicator.view.ColorsArrayBuilder;
 import com.rowland.onboarderwithstepperindicator.view.StepperIndicator;
+import com.rowland.onboarderwithstepperindicator.view.StepperIndicatorManager;
 import com.rowland.onboarderwithstepperindicator.view.adapter.OnBoarderAdapter;
 import com.rowland.onboarderwithstepperindicator.view.fragment.OnBoarder;
 
@@ -27,6 +28,8 @@ public abstract class AOnBoarderWithStepperIndicatorActivity extends ABaseActivi
 
     private ViewPager mVpOnboarderPager;
     private StepperIndicator mStepperIndicatorView;
+
+    private StepperIndicatorManager mStepperIndicatorManager;
     private ImageButton mIbNext;
     private Button mBtnSkip;
     private Button mBtnFinish;
@@ -45,6 +48,7 @@ public abstract class AOnBoarderWithStepperIndicatorActivity extends ABaseActivi
         mBtnFinish = (Button) findViewById(R.id.btn_finish);
         mButtonsLayout = (FrameLayout) findViewById(R.id.btn_layout);
 
+        mStepperIndicatorManager = new StepperIndicatorManager(mStepperIndicatorView);
 
         mIbNext.setOnClickListener(this);
         mBtnSkip.setOnClickListener(this);
@@ -130,5 +134,9 @@ public abstract class AOnBoarderWithStepperIndicatorActivity extends ABaseActivi
 
     public void setFinishButtonTitle(@StringRes int titleResId) {
         this.mBtnFinish.setText(titleResId);
+    }
+
+    public StepperIndicatorManager getStepperIndicatorManager() {
+        return mStepperIndicatorManager;
     }
 }

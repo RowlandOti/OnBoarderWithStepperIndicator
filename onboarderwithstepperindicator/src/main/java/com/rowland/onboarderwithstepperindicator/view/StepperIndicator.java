@@ -44,12 +44,19 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
     private float animIndicatorRadius;
     private float animCheckRadius;
     private float lineLength;
-
-    private float circleRadius;
     private float checkRadius;
-    private float indicatorRadius;
-    private float lineMargin;
-    private int animDuration;
+
+    // Modifiable at runtime using setters
+    private int mLineDoneColor;
+    private float mCircleStrokeWidth;
+    private int mCircleColor;
+    private int mIndicatorColor;
+    private int mLineColor;
+    private float mLineStrokeWidth;
+    private float mCircleRadius;
+    private float mIndicatorRadius;
+    private float mLineMargin;
+    private int mAnimationDuration;
 
     private int stepCount;
     private int currentStep;
@@ -106,37 +113,44 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.StepperIndicator, defStyleAttr, 0);
 
         circlePaint = new Paint();
-        circlePaint.setStrokeWidth(a.getDimension(R.styleable.StepperIndicator_stpi_circleStrokeWidth, defaultCircleStrokeWidth));
+        mCircleStrokeWidth = a.getDimension(R.styleable.StepperIndicator_stpi_circleStrokeWidth, defaultCircleStrokeWidth);
+        circlePaint.setStrokeWidth(mCircleStrokeWidth);
         circlePaint.setStyle(Paint.Style.STROKE);
-        circlePaint.setColor(a.getColor(R.styleable.StepperIndicator_stpi_circleColor, defaultCircleColor));
+        mCircleColor = a.getColor(R.styleable.StepperIndicator_stpi_circleColor, defaultCircleColor);
+        circlePaint.setColor(mCircleColor);
         circlePaint.setAntiAlias(true);
 
         indicatorPaint = new Paint(circlePaint);
         indicatorPaint.setStyle(Paint.Style.FILL);
-        indicatorPaint.setColor(a.getColor(R.styleable.StepperIndicator_stpi_indicatorColor, defaultIndicatorColor));
+        mIndicatorColor = a.getColor(R.styleable.StepperIndicator_stpi_indicatorColor, defaultIndicatorColor);
+        indicatorPaint.setColor(mIndicatorColor);
         indicatorPaint.setAntiAlias(true);
 
         linePaint = new Paint();
-        linePaint.setStrokeWidth(a.getDimension(R.styleable.StepperIndicator_stpi_lineStrokeWidth, defaultLineStrokeWidth));
+        mLineStrokeWidth = a.getDimension(R.styleable.StepperIndicator_stpi_lineStrokeWidth, defaultLineStrokeWidth);
+        linePaint.setStrokeWidth(mLineStrokeWidth);
         linePaint.setStrokeCap(Paint.Cap.ROUND);
         linePaint.setStyle(Paint.Style.STROKE);
-        linePaint.setColor(a.getColor(R.styleable.StepperIndicator_stpi_lineColor, defaultLineColor));
+        mLineColor = a.getColor(R.styleable.StepperIndicator_stpi_lineColor, defaultLineColor);
+        linePaint.setColor(mLineColor);
         linePaint.setAntiAlias(true);
 
         lineDonePaint = new Paint(linePaint);
-        lineDonePaint.setColor(a.getColor(R.styleable.StepperIndicator_stpi_lineDoneColor, defaultLineDoneColor));
+        mLineDoneColor = a.getColor(R.styleable.StepperIndicator_stpi_lineDoneColor, defaultLineDoneColor);
+        lineDonePaint.setColor(mLineDoneColor);
 
         lineDoneAnimatedPaint = new Paint(lineDonePaint);
 
-        circleRadius = a.getDimension(R.styleable.StepperIndicator_stpi_circleRadius, defaultCircleRadius);
-        checkRadius = circleRadius + circlePaint.getStrokeWidth() / 2f;
-        indicatorRadius = a.getDimension(R.styleable.StepperIndicator_stpi_indicatorRadius, defaultIndicatorRadius);
-        animIndicatorRadius = indicatorRadius;
+        mCircleRadius = a.getDimension(R.styleable.StepperIndicator_stpi_circleRadius, defaultCircleRadius);
+        checkRadius = mCircleRadius + circlePaint.getStrokeWidth() / 2f;
+        mIndicatorRadius = a.getDimension(R.styleable.StepperIndicator_stpi_indicatorRadius, defaultIndicatorRadius);
+        animIndicatorRadius = mIndicatorRadius;
         animCheckRadius = checkRadius;
-        lineMargin = a.getDimension(R.styleable.StepperIndicator_stpi_lineMargin, defaultLineMargin);
+        mLineMargin = a.getDimension(R.styleable.StepperIndicator_stpi_lineMargin, defaultLineMargin);
 
         setStepCount(a.getInteger(R.styleable.StepperIndicator_stpi_stepCount, 2));
-        animDuration = a.getInteger(R.styleable.StepperIndicator_stpi_animDuration, DEFAULT_ANIMATION_DURATION);
+        ;
+        mAnimationDuration = a.getInteger(R.styleable.StepperIndicator_stpi_animDuration, DEFAULT_ANIMATION_DURATION);
 
         a.recycle();
 
@@ -155,11 +169,11 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
         indicators = new float[stepCount];
         linePathList.clear();
 
-        float startX = circleRadius * EXPAND_MARK + circlePaint.getStrokeWidth() / 2f;
+        float startX = mCircleRadius * EXPAND_MARK + circlePaint.getStrokeWidth() / 2f;
 
         // Compute position of indicators and line length
         float divider = (getMeasuredWidth() - startX * 2f) / (stepCount - 1);
-        lineLength = divider - (circleRadius * 2f + circlePaint.getStrokeWidth()) - (lineMargin * 2);
+        lineLength = divider - (mCircleRadius * 2f + circlePaint.getStrokeWidth()) - (mLineMargin * 2);
 
         // Compute position of circles and lines once
         for (int i = 0; i < indicators.length; i++)
@@ -198,7 +212,7 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
             boolean drawCheck = i < currentStep || (drawFromNext && i == currentStep);
 
             // Draw back circle
-            canvas.drawCircle(indicator, centerY, circleRadius, circlePaint);
+            canvas.drawCircle(indicator, centerY, mCircleRadius, circlePaint);
 
             // If current step, or coming back from next step and still animating
             if ((i == currentStep && !drawFromNext) || (i == previousStep && drawFromNext && inAnimation)) {
@@ -239,7 +253,7 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int desiredHeight = (int) Math.ceil((circleRadius * EXPAND_MARK * 2) + circlePaint.getStrokeWidth());
+        int desiredHeight = (int) Math.ceil((mCircleRadius * EXPAND_MARK * 2) + circlePaint.getStrokeWidth());
 
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
@@ -295,12 +309,12 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
 
                 // Same time, pop check mark
                 checkAnimator = ObjectAnimator
-                        .ofFloat(StepperIndicator.this, "animCheckRadius", indicatorRadius, checkRadius * EXPAND_MARK, checkRadius);
+                        .ofFloat(StepperIndicator.this, "animCheckRadius", mIndicatorRadius, checkRadius * EXPAND_MARK, checkRadius);
 
                 // Finally, pop current step indicator
                 animIndicatorRadius = 0;
                 indicatorAnimator = ObjectAnimator
-                        .ofFloat(StepperIndicator.this, "animIndicatorRadius", 0f, indicatorRadius * 1.4f, indicatorRadius);
+                        .ofFloat(StepperIndicator.this, "animIndicatorRadius", 0f, mIndicatorRadius * 1.4f, mIndicatorRadius);
 
                 animatorSet.play(lineAnimator).with(checkAnimator).before(indicatorAnimator);
             } else if (currentStep == this.currentStep - 1) {
@@ -308,7 +322,7 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
                 animatorSet = new AnimatorSet();
 
                 // First, pop out current step indicator
-                indicatorAnimator = ObjectAnimator.ofFloat(StepperIndicator.this, "animIndicatorRadius", indicatorRadius, 0f);
+                indicatorAnimator = ObjectAnimator.ofFloat(StepperIndicator.this, "animIndicatorRadius", mIndicatorRadius, 0f);
 
                 // Then delete line
                 animProgress = 1.0f;
@@ -317,13 +331,13 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
 
                 // Finally, pop out check mark to display step indicator
                 animCheckRadius = checkRadius;
-                checkAnimator = ObjectAnimator.ofFloat(StepperIndicator.this, "animCheckRadius", checkRadius, indicatorRadius);
+                checkAnimator = ObjectAnimator.ofFloat(StepperIndicator.this, "animCheckRadius", checkRadius, mIndicatorRadius);
 
                 animatorSet.playSequentially(indicatorAnimator, lineAnimator, checkAnimator);
             }
 
             if (animatorSet != null) {
-                lineAnimator.setDuration(Math.min(500, animDuration));
+                lineAnimator.setDuration(Math.min(500, mAnimationDuration));
                 lineAnimator.setInterpolator(new DecelerateInterpolator());
                 indicatorAnimator.setDuration(lineAnimator.getDuration() / 2);
                 checkAnimator.setDuration(lineAnimator.getDuration() / 2);
@@ -454,6 +468,62 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
             super.writeToParcel(dest, flags);
             dest.writeInt(currentStep);
         }
+    }
+
+    public void setLineColor(int lineColor) {
+        this.mLineColor = lineColor;
+        update();
+    }
+
+    public void setIndicatorColor(int indicatorColor) {
+        this.mIndicatorColor = indicatorColor;
+        update();
+    }
+
+    public void setCircleColor(int circleColor) {
+        this.mCircleColor = circleColor;
+        update();
+    }
+
+    public void setCircleStrokeWidth(float circleStrokeWidth) {
+        this.mCircleStrokeWidth = circleStrokeWidth;
+        update();
+    }
+
+    public void setLineDoneColor(int lineDoneColor) {
+        this.mLineDoneColor = lineDoneColor;
+        update();
+    }
+
+    public void setLineStrokeWidth(float lineStrokeWidth) {
+        this.mLineStrokeWidth = lineStrokeWidth;
+        update();
+    }
+
+    public void setCircleRadius(float circleRadius) {
+        this.mCircleRadius = circleRadius;
+        update();
+    }
+
+
+    public void setIndicatorRadius(float indicatorRadius) {
+        this.mIndicatorRadius = indicatorRadius;
+        update();
+    }
+
+    public void setLineMargin(float lineMargin) {
+        this.mLineMargin = lineMargin;
+        update();
+    }
+
+    public void setAnimationDuration(int animationDuration) {
+        this.mAnimationDuration = animationDuration;
+        update();
+    }
+
+    private void update() {
+        invalidate();
+        requestLayout();
     }
 }
 
