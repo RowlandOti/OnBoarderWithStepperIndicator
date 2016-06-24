@@ -488,14 +488,15 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
         update();
     }
 
-    public void setCircleStrokeWidth(float circleStrokeWidth) {
-        this.mCircleStrokeWidth = circleStrokeWidth;
-        update();
-    }
-
     public void setLineDoneColor(int lineDoneColor) {
         this.mLineDoneColor = lineDoneColor;
         lineDonePaint.setColor(mLineDoneColor);
+        lineDoneAnimatedPaint = new Paint(lineDonePaint);
+        update();
+    }
+
+    public void setCircleStrokeWidth(float circleStrokeWidth) {
+        this.mCircleStrokeWidth = circleStrokeWidth;
         update();
     }
 
@@ -527,7 +528,7 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
 
     private void update() {
         invalidate();
-        requestLayout();
+        // requestLayout();
     }
 }
 
