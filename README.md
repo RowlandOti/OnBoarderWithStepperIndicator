@@ -16,6 +16,9 @@ Coming soon!
 
 ![Alt text](https://github.com/RowlandOti/MovieSquire/blob/master/art/squire.gif?raw=true "MovieSquire Preview")
 
+# Usage
+Coming soon!
+
 # Configuration
 Coming soon!
 
