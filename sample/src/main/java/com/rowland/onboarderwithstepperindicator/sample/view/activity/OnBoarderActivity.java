@@ -26,8 +26,8 @@ public class OnBoarderActivity extends AOnBoarderWithStepperIndicatorActivity {
         super.onCreate(savedInstanceState);
         setStatusbarTransparent(true);
 
-        getStepperIndicatorManager().setStepperIndicatorColor(R.color.app_color_primary_dark);
-        getStepperIndicatorManager().setStepperLineDoneColor(R.color.app_color_primary_dark);
+        getStepperIndicatorManager().setStepperIndicatorColor(getResources().getColor(R.color.app_color_accent_orange));
+        getStepperIndicatorManager().setStepperLineDoneColor(getResources().getColor(R.color.app_color_accent_orange));
 
         onBoarderPages = new ArrayList<>();
 

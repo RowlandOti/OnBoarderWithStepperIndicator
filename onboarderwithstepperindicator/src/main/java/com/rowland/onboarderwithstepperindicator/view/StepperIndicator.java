@@ -472,16 +472,19 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
 
     public void setLineColor(int lineColor) {
         this.mLineColor = lineColor;
+        linePaint.setColor(mLineColor);
         update();
     }
 
     public void setIndicatorColor(int indicatorColor) {
         this.mIndicatorColor = indicatorColor;
+        indicatorPaint.setColor(mIndicatorColor);
         update();
     }
 
     public void setCircleColor(int circleColor) {
         this.mCircleColor = circleColor;
+        circlePaint.setColor(mCircleColor);
         update();
     }
 
@@ -492,6 +495,7 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
 
     public void setLineDoneColor(int lineDoneColor) {
         this.mLineDoneColor = lineDoneColor;
+        lineDonePaint.setColor(mLineDoneColor);
         update();
     }
 
