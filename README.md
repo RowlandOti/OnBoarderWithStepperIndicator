@@ -24,7 +24,6 @@ For a more appealing appearance ensure that:-
 - Indicator color and Line Done color are the same. e.g.
 
 `java
-
  getStepperIndicatorManager().setStepperIndicatorColor(getResources().getColor(R.color.orange));
  getStepperIndicatorManager().setStepperLineDoneColor(getResources().getColor(R.color.orange));
 `
