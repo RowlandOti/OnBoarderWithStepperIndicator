@@ -11,9 +11,9 @@ buildscript {
 }
 
 publish {
-    userOrg = 'skyllabler'
+    userOrg = 'rowlandoti'
     groupId = 'com.rowland'
-    artifactId = 'beta-release'
+    artifactId = 'stepper-onboarder'
     publishVersion = '1.0.0'
     desc = 'An onboarding screen library to help you with introducing users to your app. You can use any layout in your swipable fragments.'
     website = 'https://github.com/RowlandOti/OnBoarderWithStepperIndicator'
