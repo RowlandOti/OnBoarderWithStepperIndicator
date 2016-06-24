@@ -6,6 +6,7 @@ publish {
 
         bintrayUser = props['BINTRAY_USER']
         bintrayKey = props['BINTRAY_KEY']
+        dryRun = props['BINTRAY_DRYRUN']
         userOrg = props['BINTRAY_ORGANISATION']
         groupId = props['BINTRAY_GROUPID']
         artifactId = props['BINTRAY_ARTIFACTID']

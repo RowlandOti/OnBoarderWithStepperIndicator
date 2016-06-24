@@ -19,6 +19,20 @@ Coming soon!
 ## Usage
 Coming soon!
 
+## Download
+Download [the latest JAR][1] or grab via Maven:
+```xml
+<dependency>
+  <groupId>com.rowland.onboarderwithstepperindicator</groupId>
+  <artifactId>stepper-onboarder</artifactId>
+  <version>beta-1.0.0</version>
+  <type>pom</type>
+</dependency>
+```
+or Gradle:
+```groovy
+compile 'com.rowland.onboarderwithstepperindicator:stepper-onboarder:beta-1.0.0'
+```
 ## Configuration
 Coming soon!
 
@@ -37,8 +51,9 @@ For a more appealing appearance ensure that:-
  	getStepperIndicatorManager().setStepperCircleColor(getResources().getColor(R.color.grey));
  	getStepperIndicatorManager().setStepperLineColor(getResources().getColor(R.color.grey));
 ```
+
 ## Contact
-- Twitter: [@rowlandoti](https://www.twitter.com/rowlandoti)
+- Twitter: [@rowlandoti][2]
 
 ## Credits
 Coming soon!
@@ -59,3 +74,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+[1]: https://search.maven.org/remote_content?g=com.squareup.retrofit&a=retrofit&v=LATEST
+[2]: https://www.twitter.com/rowlandoti
