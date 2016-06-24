@@ -13,5 +13,6 @@ publish {
         publishVersion = props['BINTRAY_VERSION']
         desc = props['BINTRAY_DESC']
         website = props['BINTRAY_URL']
+        repoName = props['BINTRAY_REPONAME']
     }
 }

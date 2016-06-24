@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/RowlandOti/OnBoarderWithStepperIndicator.svg?branch=master)](https://travis-ci.org/RowlandOti/OnBoarderWithStepperIndicator)
 
 ## OnBoarderWithStepperIndicator
-An onboarding screen library to help you with introducing users to your app. You can use any layout in your swipable fragments. 
+An onboarding stepper screen library that allows developers to easily create a non-intrusive first-use experience to teach users how to use your app without overloading and frustrating them. 
 
 ## Features
 - View pager with Stepper Indicator for Showing step levels.
@@ -75,5 +75,5 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-[1]: https://search.maven.org/remote_content?g=com.squareup.retrofit&a=retrofit&v=LATEST
+[1]: https://search.maven.org/remote_content?g=com.rowland.onboarderwithstepperindicator&a=stepper-onboarder&v=LATEST
 [2]: https://www.twitter.com/rowlandoti
