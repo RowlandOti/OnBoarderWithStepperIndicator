@@ -23,14 +23,14 @@ Coming soon!
 For a more appealing appearance ensure that:-
 - Indicator color and Line Done color are the same. e.g.
 
-`java
+` java
  getStepperIndicatorManager().setStepperIndicatorColor(getResources().getColor(R.color.orange));
  getStepperIndicatorManager().setStepperLineDoneColor(getResources().getColor(R.color.orange));
 `
 - Circle color and Line color are the same. e.g.
 
 
-`java
+` java
  	getStepperIndicatorManager().setStepperCircleColor(Color.GREY);
  	getStepperIndicatorManager().setStepperLineColor(Color.GREY);
 `
