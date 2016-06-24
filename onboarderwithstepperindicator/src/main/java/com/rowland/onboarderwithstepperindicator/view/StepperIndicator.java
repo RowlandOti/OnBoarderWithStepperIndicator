@@ -36,7 +36,9 @@ public class StepperIndicator extends View implements ViewPager.OnPageChangeList
     private static final float EXPAND_MARK = 1.3f;
 
     private Paint circlePaint;
-    private Paint linePaint, lineDonePaint, lineDoneAnimatedPaint;
+    private Paint linePaint;
+    private Paint lineDonePaint;
+    private Paint lineDoneAnimatedPaint;
     private Paint indicatorPaint;
 
     private List<Path> linePathList = new ArrayList<>();
