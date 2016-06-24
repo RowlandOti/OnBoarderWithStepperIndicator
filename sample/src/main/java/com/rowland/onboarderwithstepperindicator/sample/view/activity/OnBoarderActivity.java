@@ -25,6 +25,10 @@ public class OnBoarderActivity extends AOnBoarderWithStepperIndicatorActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStatusbarTransparent(true);
+
+        getStepperIndicatorManager().setStepperIndicatorColor(R.color.app_color_primary_dark);
+        getStepperIndicatorManager().setStepperLineDoneColor(R.color.app_color_primary_dark);
+
         onBoarderPages = new ArrayList<>();
 
         OnBoarder intro1 = new OnBoarder("Welcome", "Your Two Steps Away from Making Farming Easier", R.drawable.herdy_logo_125px);
@@ -38,10 +42,6 @@ public class OnBoarderActivity extends AOnBoarderWithStepperIndicatorActivity {
         onBoarderPages.add(intro1);
         setOnboardPagesReady(onBoarderPages);
         shouldDarkenButtonsLayout(true);
-
-        getStepperIndicatorManager().setStepperIndicatorColor(R.color.app_color_primary_dark);
-        getStepperIndicatorManager().setStepperLineDoneColor(R.color.app_color_primary_dark);
-        getStepperIndicatorManager().setStepperIndicatorColor(Color.MAGENTA);
     }
 
     @Override
