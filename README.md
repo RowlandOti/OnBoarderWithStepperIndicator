@@ -31,7 +31,13 @@ Download [the latest JAR][1] or grab via Maven:
 ```
 or Gradle:
 ```groovy
-compile 'com.rowland.onboarderwithstepperindicator:stepper-onboarder:beta-1.0.0'
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile 'com.rowland.onboarderwithstepperindicator:stepper-onboarder:beta-1.0.0'
+}
 ```
 ## Configuration
 Coming soon!
