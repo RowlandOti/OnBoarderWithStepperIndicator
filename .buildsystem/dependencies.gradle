@@ -1,0 +1,117 @@
+ext {
+    // Android
+    androidBuildToolsVersion = "23.0.1"
+    androidMinSdkVersion = 11
+    androidTargetSdkVersion = 23
+    androidCompileSdkVersion = 23
+
+    // Libraries
+    // REMOTE BINARY DEPENDENCY - Android
+    supportLibraryVersion = '23.3.0'
+    daggerVersion = '2.0.2'
+    butterKnifeVersion = '7.0.1'
+    rxJavaVersion = '1.0.14'
+    rxAndroidVersion = '1.0.1'
+    javaxAnnotationVersion = '1.0'
+    gsonVersion = '2.3'
+    okHttpVersion = '2.5.0'
+    okhttp3LoggingInterceptorVersion = '3.0.1'
+    androidAnnotationsVersion = '21.0.3'
+    retrofitVersion = '2.0.1'
+    dbFlowVersion = '3.0.0-beta6'
+    dbSugarOrmVersion = '1.5'
+    facebookStethoVersion = '1.3.1'
+    facebookReboundVersion = '0.3.4'
+    paolorotoloAppIntroVersion = '4.0.0'
+    prettyLoggerVersion = '1.12'
+    stepperIndicatorVersion = '1.0.1'
+
+    // Testing
+    robolectricVersion = '3.0'
+    jUnitVersion = '4.12'
+    assertJVersion = '1.7.1'
+    mockitoVersion = '1.9.5'
+    dexmakerVersion = '1.0'
+    espressoVersion = '2.0'
+    testingSupportLibVersion = '0.1'
+
+    // Development
+    leakCanaryVersion = '1.3.1'
+
+    presentationDependencies = [
+            daggerCompiler       : "com.google.dagger:dagger-compiler:$daggerVersion",
+            dagger               : "com.google.dagger:dagger:$daggerVersion",
+            butterKnife          : "com.jakewharton:butterknife:$butterKnifeVersion",
+            rxJava               : "io.reactivex:rxjava:$rxJavaVersion",
+            rxAndroid            : "io.reactivex:rxandroid:$rxAndroidVersion",
+            javaxAnnotation      : "javax.annotation:jsr250-api:$javaxAnnotationVersion",
+            supportDesign        : "com.android.support:design:$supportLibraryVersion",
+            supportAppCompatV7   : "com.android.support:appcompat-v7:$supportLibraryVersion",
+            supportRecyclerView  : "com.android.support:recyclerview-v7:$supportLibraryVersion",
+            supportCardView      : "com.android.support:cardview-v7:$supportLibraryVersion",
+            facebookStetho       : "com.facebook.stetho:stetho:$facebookStethoVersion",
+            facebookStethoOkHttp3: "com.facebook.stetho:stetho-okhttp3:$facebookStethoVersion",
+            facebookRebound      : "com.facebook.rebound:rebound:$facebookReboundVersion",
+            paolorotoloAppIntro  : "com.github.paolorotolo:appintro:$paolorotoloAppIntroVersion",
+            prettyLogger         : "com.github.orhanobut:logger:$prettyLoggerVersion",
+            stepperIndicator     : "com.github.badoualy:stepper-indicator:$stepperIndicatorVersion",
+    ]
+
+    presentationTestDependencies = [
+            mockito          : "org.mockito:mockito-core:$mockitoVersion",
+            dexmaker         : "com.google.dexmaker:dexmaker:$dexmakerVersion",
+            dexmakerMockito  : "com.google.dexmaker:dexmaker-mockito:$dexmakerVersion",
+            espresso         : "com.android.support.test.espresso:espresso-comre:$espressoVersion",
+            testingSupportLib: "com.android.support.test:testing-support-lib:$testingSupportLibVersion",
+    ]
+
+    presentationDebugDependencies = [
+            facebookStetho           : "com.facebook.stetho:stetho:$facebookStethoVersion",
+            facebookStethoOkHttp3    : "com.facebook.stetho:stetho-okhttp3:$facebookStethoVersion",
+            okHttp3LoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okhttp3LoggingInterceptorVersion",
+    ]
+
+    domainDependencies = [
+            daggerCompiler : "com.google.dagger:dagger-compiler:$daggerVersion",
+            dagger         : "com.google.dagger:dagger:$daggerVersion",
+            javaxAnnotation: "javax.annotation:jsr250-api:$javaxAnnotationVersion",
+            rxJava         : "io.reactivex:rxjava:$rxJavaVersion",
+    ]
+
+    domainTestDependencies = [
+            junit  : "junit:junit:$jUnitVersion",
+            mockito: "org.mockito:mockito-comre:$mockitoVersion",
+    ]
+
+    dataDependencies = [
+            daggerCompiler            : "com.google.dagger:dagger-compiler:$daggerVersion",
+            dagger                    : "com.google.dagger:dagger:$daggerVersion",
+            okHttp                    : "com.squareup.okhttp:okhttp:$okHttpVersion",
+            gson                      : "com.google.comde.gson:gson:$gsonVersion",
+            rxJava                    : "io.reactivex:rxjava:$rxJavaVersion",
+            rxAndroid                 : "io.reactivex:rxandroid:$rxAndroidVersion",
+            javaxAnnotation           : "javax.annotation:jsr250-api:$javaxAnnotationVersion",
+            androidAnnotations        : "com.android.support:support-annotations:$androidAnnotationsVersion",
+            retrofit                  : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConverterGson     : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitConverterSimpleXml: "com.squareup.retrofit2:converter-simplexml:$retrofitVersion",
+            retrofitRxJavaAdapter     : "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion",
+            dbFlow                    : "com.github.Raizlabs.DBFlow:dbflow:$dbFlowVersion",
+            dbFlowCore                : "com.github.Raizlabs.DBFlow:dbflow-core:$dbFlowVersion",
+            dbFlowProcessor           : "com.github.Raizlabs.DBFlow:dbflow-processor:$dbFlowVersion",
+            dbFlowSQLCipher           : "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:$dbFlowVersion",
+            dbSugarOrm                : "com.github.satyan:sugar:$dbSugarOrmVersion",
+    ]
+
+    dataTestDependencies = [
+            junit      : "junit:junit:$jUnitVersion",
+            assertj    : "org.assertj:assertj-core:$assertJVersion",
+            mockito    : "org.mockito:mockito-core:$mockitoVersion",
+            robolectric: "org.robolectric:robolectric:$robolectricVersion",
+    ]
+
+    developmentDependencies = [
+            leakCanary: "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion",
+    ]
+
+}

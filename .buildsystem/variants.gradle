@@ -1,0 +1,53 @@
+ext {
+
+    // Build Brand 
+    baseAppName = 'XmlParser'
+    basePackageName = 'co.herdy.manager'
+    baseVersionName = '1.0.0'
+    baseVersionCode = 1
+    baseBuildToolsVersion = '23.0.2'
+    baseMinSdkVersion = 15
+    baseTargetSdkVersion = 23
+    baseCompileSdkVersion = 23
+    baseTestInstrumentationRunner = 'android.support.test.runner.AndroidJUnitRunner'
+
+    // Resources
+    resAppColorName = 'build_brand_primary'
+    resAppName = 'build_app_name'
+    // Fields
+    fieldIsProVersion = 'IS_PRO_VERSION'
+    fieldApiKey = 'API_KEY'
+
+    pro = [
+
+            packageName  : "${basePackageName}.pro",
+            appName      : "${baseAppName} Premium",
+            appColor     : "#F44336",
+            isProVersion : "true",
+            apiKey       : '"4VyylbjdrM1AdZGLpQHRx6wTC"',
+            versionName  : "${baseVersionName}-pro",
+            versionCode  : "${baseVersionCode}"
+    ]
+
+    free = [
+
+            packageName  : "${basePackageName}.free",
+            appName      : "${baseAppName} Free",
+            appColor     : "#4CAF50",
+            isProVersion : "false",
+            fieldApiKey  : '"4VyylbjdrM1AdZGLpQHRx6wTC"',
+            versionName  : "${baseVersionName}-free",
+            versionCode  : "${baseVersionCode}"
+    ]
+
+    promo = [
+
+            packageName  : "${basePackageName}.promo",
+            appName      : "${baseAppName} Promo",
+            appColor     : "#9C27B0",
+            isProVersion : "false",
+            fieldApiKey  : '"4VyylbjdrM1AdZGLpQHRx6wTC"',
+            versionName  : "${baseVersionName}-promo",
+            versionCode  : "${baseVersionCode}"
+    ]
+}
