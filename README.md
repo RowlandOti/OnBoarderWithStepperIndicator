@@ -19,6 +19,22 @@ Coming soon!
 # Configuration
 Coming soon!
 
+# Design Guide
+For a more appealing appearance ensure that:-
+- Indicator color and Line Done color are the same. e.g.
+
+`java
+ 	getStepperIndicatorManager().setStepperIndicatorColor(Color.MAGENTA);
+ 	getStepperIndicatorManager().setStepperLineDoneColor(Color.MAGENTA);
+`
+- Circle color and Line color are the same. e.g.
+
+
+`java
+ 	getStepperIndicatorManager().setStepperCircleColor(Color.GREY);
+ 	getStepperIndicatorManager().setStepperLineColor(Color.GREY);
+`
+
 # Credits
 Coming soon!
 

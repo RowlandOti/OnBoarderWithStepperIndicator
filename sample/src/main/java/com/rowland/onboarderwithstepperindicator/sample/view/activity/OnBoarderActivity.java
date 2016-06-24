@@ -2,6 +2,7 @@ package com.rowland.onboarderwithstepperindicator.sample.view.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -37,6 +38,10 @@ public class OnBoarderActivity extends AOnBoarderWithStepperIndicatorActivity {
         onBoarderPages.add(intro1);
         setOnboardPagesReady(onBoarderPages);
         shouldDarkenButtonsLayout(true);
+
+        getStepperIndicatorManager().setStepperIndicatorColor(R.color.app_color_primary_dark);
+        getStepperIndicatorManager().setStepperLineDoneColor(R.color.app_color_primary_dark);
+        getStepperIndicatorManager().setStepperIndicatorColor(Color.MAGENTA);
     }
 
     @Override
