@@ -1,5 +1,23 @@
-// It is important that the library apt plugin are applied before butterfork-plugin
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.3.4'
+    }
+}
+
+publish {
+    userOrg = 'skyllabler'
+    groupId = 'com.rowland'
+    artifactId = 'beta-release'
+    publishVersion = '1.0.0'
+    desc = 'An onboarding screen library to help you with introducing users to your app. You can use any layout in your swipable fragments.'
+    website = 'https://github.com/RowlandOti/OnBoarderWithStepperIndicator'
+}
 
 android {
     compileSdkVersion 23
