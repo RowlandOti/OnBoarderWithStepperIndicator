@@ -43,6 +43,5 @@ before_install:
 - chmod +x gradlew
 script:
 - "./gradlew clean build --stacktrace"
-after_success:
-- ./gradlew bintrayUpload -PbintrayUser="${BINTRAYUSER}" -PbintrayKey="${BINTRAYKEY}" -PdryRun=false --stacktrace
-  
+after_deploy:
+- ./gradlew bintrayUpload -PbintrayUser=$BINTRAYUSER -PbintrayKey=$BINTRAYKEY -PdryRun=false --stacktrace
