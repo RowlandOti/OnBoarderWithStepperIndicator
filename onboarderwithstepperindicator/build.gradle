@@ -24,7 +24,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 23
         versionCode Integer.parseInt(new Date().format('yyyyMMddHH'))
-        versionName semverVersion()
+        versionName "1.0"
     }
     buildTypes {
         release {
