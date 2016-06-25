@@ -1,0 +1,70 @@
+// https://gist.github.com/PrashamTrivedi/8846df24da30d1e75025
+def getReleasePath() {
+    //Define RELEASE_PATH anywhere(in properties file) and your apk + mapping file will be copied there.
+    return hasProperty('RELEASE_PATH') ? RELEASE_PATH : "${project.rootDir}\\Release"
+}
+
+android.applicationVariants.all { variant ->
+
+    //Mapping file for proguard path for each variant
+    def mappingFile = variant.variantData.mappingFile
+
+    //Right now only for release type (not debuggable and zipAlignEnabled)
+    //Proguard must be enabled to get Mapping file, In future I will eliminate this requirement
+    if (!variant.buildType.debuggable && variant.variantData.zipAlignEnabled && mappingFile != null) {
+
+        //Get Current Date and split it into yyyy,MM,dd to create directory structure reflecting to it.
+        Date date = new Date()
+        def y = date.format("yyyy")
+        def m = date.format("MM")
+        def d = date.format("dd")
+
+        //RELEASE_PATH property or project's dir\release.
+        def releasePath = getReleasePath()
+
+        //Get Project Name to make directory
+        def projectName = project.parent.name
+        //File path will be generated Like : ReleasePath/ProjectName/Y/M/D
+        //e.g.: D:/Codes/Release/ShareChannels/2015/07/02
+        def filePath = "$releasePath/$projectName/$y/$m/$d"
+
+        //Directory name by version, where apk and mapping will be stored
+        def dirName = "$variant.versionName - ($variant.versionCode)"
+        File release = new File("$filePath/$dirName")
+        //Mapping Directory: Will be part of original Directory
+        File mapping = new File("$filePath/$dirName/Mapping")
+
+        //APK File To copy
+        def apk = variant.outputs.outputFile
+
+        //Main Container task.
+        def publishTask = project.tasks.create("publish${variant.name}")
+
+        //Task for copying mapping file
+        def copyMapping = project.tasks.create("Copy${variant.name}Mapping", Copy) {
+            from mappingFile
+            into mapping
+        }
+
+        //Task for copying apk file
+        def copyApk = project.tasks.create("copy${variant.name}Apk", Copy) {
+            from apk
+            into release
+        }
+
+        //Task for Creating directory
+        def prepare = project.tasks.create("Prepare${variant.name}Directories") {
+            mapping.mkdirs()
+            release.mkdirs()
+        }
+
+        //Now dependency tree: First APK should be created, which will give us mapping and apk files to copy.
+        prepare.dependsOn variant.assemble
+        //Then create directories.
+        copyMapping.dependsOn prepare
+        //first copy mapping file, then apk file
+        copyApk.dependsOn copyMapping
+        //Now just run Publish Task and your apks will be copied easily.
+        publishTask.dependsOn copyApk
+    }
+}

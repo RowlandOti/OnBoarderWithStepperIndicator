@@ -1,0 +1,38 @@
+task zipBackup(type: Zip) {
+    from('../'){
+        exclude "**/build"
+        exclude "**/.gradle"
+        exclude "**/.git"
+        exclude "**/gradle"
+        exclude "**/captures"
+        exclude "**/backups"
+        exclude "**/*backupzip*"
+    }
+    baseName = "backupzip" + getDate()
+}
+
+task copyApkForZip(type: Copy) {
+    from 'build/outputs/apk'
+    into '../apk'
+    include '**/app-debug.apk'
+}
+
+task moveBackup(type: Copy) {
+    from 'build/distributions'
+    into '../backups'
+    include '**/backupzip*'
+    doLast {
+        project.delete "build/distributions"
+        project.delete "../apk"
+    }
+}
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmmss')
+    return formattedDate
+
+// Copy Apk for Zip.
+zipBackup.dependsOn copyApkForZip
+// Relocate the backup
+moveBackup.dependsOn zipBackup

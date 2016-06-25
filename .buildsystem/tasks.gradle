@@ -1,0 +1,11 @@
+// https://www.reddit.com/r/androiddev/comments/3ig3gm/show_us_your_gradle_tasks/
+
+task updateIcon << {
+    println "Generating Release Icon"
+    def scriptDir = "/.buildsystem/.scripts";
+    exec {
+        executable "bash"
+        args "$rootProject.rootDir$scriptDir/icon_gen.sh", "v" + appVersionName, rootProject.rootDir, scriptDir
+    }
+}
+preBuild.dependsOn updateIcon
