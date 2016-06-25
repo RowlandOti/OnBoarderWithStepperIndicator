@@ -4,15 +4,11 @@ publish {
         def props = new Properties()
         props.load(new FileInputStream(propFile))
 
-        bintrayUser = props['BINTRAY_USER']
-        bintrayKey = props['BINTRAY_KEY']
-        dryRun = props['BINTRAY_DRYRUN']
         userOrg = props['BINTRAY_ORGANISATION']
         groupId = props['BINTRAY_GROUPID']
         artifactId = props['BINTRAY_ARTIFACTID']
         publishVersion = props['BINTRAY_VERSION']
         desc = props['BINTRAY_DESC']
         website = props['BINTRAY_URL']
-        repoName = props['BINTRAY_REPONAME']
     }
 }
