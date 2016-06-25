@@ -1,16 +1,48 @@
 language: android
-jdk: oraclejdk7
+notifications:
+  email:
+    recipients:
+    - rowlandotienoo@gmail.com
+    on_success: always
+    on_failure: always
+env:
+  global:
+  - secure: N4l67MOZZjxpjbx+zmOVjNloFMSDSWgTrjXvDNvjQqchew1meNQ+PddIW4qV/ZL04tnq1Jc78AKspGbpuhTl3w3fOBg0gJUNuuq2bAZdUHPMfyGKwPUDRnOCtpSspMPdjo23ckUpmleNisr8x5XKRHgjwl3MtwHH3kCI7o3HFxb24QOyPYY9nlkbuPL3u+R6VrecfMzUBZNyfkZMPx1j6RKbcjJeMAcUiBRVDI0J2eCisHTJATaktaUSiOKWXyUvaThExgz4TRwc5QFqU+OqLajGzRilfZxr/sC+4ayaq26vGFb2FMbtM1TU3X2csOoKq5b5UimI3mjCxUXwYzLhoR+F68zX4+LIjmaDYh9eVSyJFmi3rU5PcLerlHLrQ5XPPHPCS+IyLUmTIXbYtKT0ieZT/3PZn+7FyhnLZBvym+KM6qfcoFp8fBIFkelMCuuoxZ1KYB9DHOhpg9BrfEMU11U838/sF4jqrKDdI8xFHrEkxixbeN5CpXUFpJpmVR7m65Nbw31if126/unrO5EjKHV+5mMmryzIj9aQH6/39CfQxpLur1uHI3DVtlpHEQ0jDNk0nFhbjPLRdTQsAn5tnMavLkLTZdfsKcsIGkuDpRaG8VCHkRTnnqI/cX9+N/2Cx+d4pHc/zvmzScbSOgzrjsmREgmjba1ozuCGnGM7CJ0=
+  - secure: ia7r8mpD/X90sHaaODKS3ODodffLTB7fAO/cxtuvAh4Hq4TpbzcBir1nAAsmRtwFybg9eLhKSI7YauazkkhIkgrv1WebmSSLSZxHQxdLIoTZyb9oilhquPSLR4vbVyx/I/S0VefkE1IyK8ZfA4yeUINwHjlWs4vEwQPTLiL9Nqi7J0dsJIes+to20wdGGpvHiQwNn5hjDVKJg5LN1auDpmMrTjuVJ5aum0TWxnT2hv3gpWvNefB/COV4VwDRYx4LTx8TBQzyy1e56/LISDGlLsh57fQZ7AyT2jSD9lPOeRQZqNbAYFsID7YP5RMRXJHAShyPKaj9hUNjAMSOz/Y9/YabZWeuNd5PbWgaq+Wg5iF9aWNx74LLAKCNs2tYg19qA8sgM6urWFmyqTVKVLOq8uQHe+Xyl38Aqzk8QR6UQZ3LeRCh2wHovcIhfgCg8cuejKDoYq1Qv0d25vWab3urhP/EXNsd9xOQNY2IDRyIZ7i8YfRsGJPx6lPKKt2c92LBDzRr0KYPsoiGvT4aLuLo+Oa4gvE+pFv4qTZSBU9JkeGX4BDTmZCYKhZoocNbiq0JOWQ6dmOPjXEuqrtLbh+iSsIGpcAzy4ZEc4Yks9bWNLsuJ7EvR7XsFiEzHCk86oVFRQ4IgkMfVGRq5l/t3IFz7FqRCQFIf5KxPKIP9NWiZGc=
+jdk:
+- oraclejdk7
+- oraclejdk8
 android:
   components:
-    - tools
-    - extra-android-support
-    - extra-google-google_play_services
-    - extra-android-m2repository
-    - extra-google-m2repository
-    - build-tools-23.0.2
-    - android-23
-
+  - tools
+  - extra-android-support
+  - extra-google-google_play_services
+  - extra-android-m2repository
+  - extra-google-m2repository
+  - build-tools-23.0.2
+  - android-23
+deploy:
+  provider: releases
+  api_key: 
+  # The api-key is encrypted like described here: http://docs.travis-ci.com/user/encryption-keys/  (only travis can decrypt the key)
+  secure: jh5+MyvVwasiWae1w7/HYSSe6pXPrRasrNw1E3O1YpGmjQxrbYEMjsNCqsmHNdoy35OtTdKpuvQATze2KY+EpT+YnUw1NsNIDiZY99KcTO3VVfvUDfz7474MIry5YSiqdr6WXMyUmtpZcgFRQXLbGCZhgFE0F4r6aDBPx3fxEj9138wAILGOQedovfzNi7VDW3/1wS9IfNscQwLQLRJKTwPEt+blYMz33O4f17D7R3KJaEpDfqRa9HHv8iRSX9DlEZ9DtEzmaQ0VYfzc0fPNAfMVlsrebvrunfLF1+LNvSKrk+7In4cA7fzCx/Re7v7o9fI4Uztq3zsz0NxWupqulBySMlQDn5fwoJCKFd80u5LOOtjqZ5QgBqeBXUsV5RxiQHzJ7hrhH8VvrQl43eDo46U96ZwvnchMyfwNMyDFs6BwnMlrs8TtRN61Y0tGpO9GY+M8HvF8xFhzhcaEhU0ULs177aEel/sxOM2GpW/ASymPft7yiIkHydA3Ofj6P9PxnovaPYR1chPPKXNylH7OP56qg028TFfe/FG2UwTz5mKxXdz7vmgO5Z1rLugWGEa8iREKbdWyNH2UyoO38il6LXeny1LmcGgU3JHp8u2I8hityFk5ofSMQtjgQZxriW8aY93qCBbU1HPIk7gxetuD0h3fPX3poyVOR3kpqpAh5Us=
+  # Which file(s) to upload
+  file: sample/build/outputs/apk/sample-debug.apk
+  # do not delete the files we're trying to upload
+  skip_cleanup: true
+  # only deploy if
+  on:
+    # we are on this repo
+    repo: RowlandOti/OnBoarderWithStepperIndicator
+    # and we are building a tag
+    tags: true
 before_install:
-  - chmod +x gradlew
-
-script: "./gradlew build --stacktrace"
+- export JAVA7_HOME=/usr/lib/jvm/java-7-oracle
+- export JAVA8_HOME=/usr/lib/jvm/java-8-oracle
+- export JAVA_HOME=$JAVA8_HOME
+- chmod +x gradlew
+script:
+- "./gradlew clean build --stacktrace"
+after_success:
+- ./gradlew bintrayUpload -PbintrayUser="${BINTRAYUSER}" -PbintrayKey="${BINTRAYKEY}" -PdryRun=false --stacktrace
+  
