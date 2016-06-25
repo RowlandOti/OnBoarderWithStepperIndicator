@@ -42,6 +42,4 @@ before_install:
 - export JAVA_HOME=$JAVA8_HOME
 - chmod +x gradlew
 script:
-- "./gradlew clean build --stacktrace"
-after_deploy:
-- ./gradlew bintrayUpload -PbintrayUser=$BINTRAYUSER -PbintrayKey=$BINTRAYKEY -PdryRun=false --stacktrace
+- "./gradlew clean build bintrayUpload -PbintrayUser=$BINTRAYUSER -PbintrayKey=$BINTRAYKEY -PdryRun=false --stacktrace"
