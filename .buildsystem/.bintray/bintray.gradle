@@ -7,7 +7,7 @@ publish {
         userOrg = props['BINTRAY_ORGANISATION']
         groupId = props['BINTRAY_GROUPID']
         artifactId = props['BINTRAY_ARTIFACTID']
-        publishVersion = props['BINTRAY_VERSION']
+        publishVersion = semverVersion()
         desc = props['BINTRAY_DESC']
         website = props['BINTRAY_URL']
     }
