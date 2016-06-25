@@ -5,7 +5,7 @@
 def getVersionName = { ->
     def stdout = new ByteArrayOutputStream()
     exec {
-        commandLine 'git', 'describe', '--tags'
+        commandLine "git", "describe", "--tags"
         standardOutput = stdout
     }
     return stdout.toString().trim()
@@ -20,7 +20,7 @@ publish {
         userOrg = props['BINTRAY_ORGANISATION']
         groupId = props['BINTRAY_GROUPID']
         artifactId = props['BINTRAY_ARTIFACTID']
-        publishVersion = semverVersionPrefix("beta")
+        publishVersion = getVersionName()
         desc = props['BINTRAY_DESC']
         website = props['BINTRAY_URL']
     }
