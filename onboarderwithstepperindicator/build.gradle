@@ -1,18 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
-apply plugin: 'gitsemver'
 apply from: '../.buildsystem/.bintray/bintray.gradle'
 
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url "http://dl.bintray.com/palantir/releases"
-        }
     }
     dependencies {
         classpath 'com.novoda:bintray-release:0.3.4'
-        classpath 'com.palantir:gradle-gitsemver:0.6.0'
     }
 }
 
