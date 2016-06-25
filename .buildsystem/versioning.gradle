@@ -16,23 +16,12 @@ ext.getVersionCode = { ->
 
 ext.getVersionName = { ->
     try {
-        def branchout = new ByteArrayOutputStream()
+        def stdout = new ByteArrayOutputStream()
         exec {
-            commandLine 'git', 'rev-parse', '--abbrev-ref', 'HEAD'
-            standardOutput = branchout
+            commandLine 'git', 'describe', '--tags'
+            standardOutput = stdout
         }
-        def branch = branchout.toString().trim()
-
-        if (branch.equals("master")) {
-            def stdout = new ByteArrayOutputStream()
-            exec {
-                commandLine 'git', 'describe', '--tags'
-                standardOutput = stdout
-            }
-            return stdout.toString().trim()
-        } else {
-            return branch;
-        }
+        return stdout.toString().trim()
     }
     catch (ignored) {
         return null;
