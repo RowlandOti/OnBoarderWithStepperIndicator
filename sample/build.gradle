@@ -8,8 +8,8 @@ android {
         applicationId "com.rowland.onboarderwithstepperindicator.sample"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode Integer.parseInt(new Date().format('yyyyMMddHH'))
-        versionName "1.0"
+        versionCode getVersionCode()
+        versionName getVersionName()
     }
     buildTypes {
         release {
