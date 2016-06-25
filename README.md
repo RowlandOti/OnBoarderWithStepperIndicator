@@ -1,5 +1,5 @@
 ## Status
-[![Build Status](https://travis-ci.org/RowlandOti/OnBoarderWithStepperIndicator.svg?branch=master)](https://travis-ci.org/RowlandOti/OnBoarderWithStepperIndicator)
+[![Build Status](https://travis-ci.org/RowlandOti/OnBoarderWithStepperIndicator.svg?branch=master)](https://travis-ci.org/RowlandOti/OnBoarderWithStepperIndicator)[ ![Download](https://api.bintray.com/packages/rowlandoti/maven/stepper-onboarder/images/download.svg) ](https://bintray.com/rowlandoti/maven/stepper-onboarder/_latestVersion)
 
 ## OnBoarderWithStepperIndicator
 An onboarding stepper screen library that allows developers to easily create a non-intrusive first-use experience to teach users how to use your app without overloading and frustrating them. 
@@ -25,7 +25,7 @@ Download [the latest JAR][1] or grab via Maven:
 <dependency>
   <groupId>com.rowland.onboarderwithstepperindicator</groupId>
   <artifactId>stepper-onboarder</artifactId>
-  <version>beta-1.0.0</version>
+  <version>1.0.0-beta1</version>
   <type>pom</type>
 </dependency>
 ```
@@ -36,7 +36,7 @@ repositories {
 }
 
 dependencies {
-  compile 'com.rowland.onboarderwithstepperindicator:stepper-onboarder:beta-1.0.0'
+  compile 'com.rowland.onboarderwithstepperindicator:stepper-onboarder:1.0.0-beta1'
 }
 ```
 ## Configuration
